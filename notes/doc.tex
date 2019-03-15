@@ -1,0 +1,73 @@
+\documentclass{article}
+
+\usepackage[final]{style}
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{verbatim}
+\usepackage{graphicx}       % for figures
+
+\usepackage{amsmath}
+
+\title{Notes of Computer Vision}
+
+\author{
+  Xiangli Chen \\
+  Amazon Robotics\\
+  % \texttt{\{name\}@cs.stanford.edu} \\
+}
+
+\begin{document}
+
+\maketitle
+%\tableofcontents
+
+\section{Introduction}
+\section{Foundation}
+\subsection{Linear Algebra}
+\paragraph{Rotation Equation}
+2D counter-clockwise rotation by an angle $\theta$
+\begin{align*}
+x' = \cos \theta x - \sin \theta y \\
+y' = \cos \theta y + \sin \theta x.
+\end{align*}
+Matrix formulation is
+\[
+\begin{bmatrix}
+  x' \\ y'
+\end{bmatrix}=
+\begin{bmatrix}
+  cos\theta & -sin\theta \\
+  sin\theta & cos\theta
+\end{bmatrix}
+\begin{bmatrix}
+  x \\ y
+\end{bmatrix}.
+\]
+If you rotate the vector 
+$x=\begin{bmatrix}1\\0\\\end{bmatrix}$, by an angle $\theta$, 
+its new coordinates are 
+$\begin{bmatrix}\cos \theta \\\sin \theta \\\end{bmatrix}$ 
+and if you rotate the vector 
+$y=\begin{bmatrix}0\\1\\\end{bmatrix}$, 
+by an angle $\theta$, its new coordinates are 
+$\begin{bmatrix}-\sin \theta \\\cos \theta \\\end{bmatrix}$.
+This gives the general formula for the new coordinates $(x', y')$ 
+of the point $(x, y)$ after rotation.
+
+The 2D rotation matrix (R) satisfies
+\begin{itemize}
+\item $R\cdot R^T = I$ 
+\item $\det (R) = 1$.
+\end{itemize}
+
+% References
+\small
+\bibliographystyle{plain}
+\bibliography{biblio}
+\end{document}
